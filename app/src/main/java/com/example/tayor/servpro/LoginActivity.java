@@ -44,7 +44,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class LoginActivity extends AppCompatActivity{
 
-    boolean VISIBLE_PASSWORD = false;
     // UI references.
     private EditText mEmailView;
     private EditText mPasswordView;
@@ -78,7 +77,7 @@ public class LoginActivity extends AppCompatActivity{
                     startActivity(mainScreen);
                     Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                 } else{
-                    Toast.makeText(LoginActivity.this, "Username/Password incorrect", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username/Password Incorrect", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -50,7 +50,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/D:/AndroidStudio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_remove_red_eye_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/D:/AndroidStudio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_power_settings_new_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -61,7 +61,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="0e0000" />
-                            <entry key="outputName" value="ic_eye" />
+                            <entry key="outputName" value="ic_logout" />
                             <entry key="sourceFile" value="C:\Users\tayor" />
                           </map>
                         </option>

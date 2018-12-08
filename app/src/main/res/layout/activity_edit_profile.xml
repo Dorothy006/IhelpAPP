@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    tools:context=".RegisterActivity">
-
-    <ScrollView
-        android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    tools:context=".EditProfileActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
@@ -38,11 +38,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/email"
+                    android:id="@+id/email_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
+                    android:hint="Email Address"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -52,21 +52,34 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/phone_number"
+                    android:id="@+id/phone_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
+            <Button
+                android:id="@+id/update_credentials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Update"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/line_1"
+                    android:id="@+id/line_1_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Line 1"
@@ -80,7 +93,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/line_2"
+                    android:id="@+id/line_2_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Line 2"
@@ -94,7 +107,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Country"
+                    android:id="@+id/country_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Country"
@@ -108,7 +121,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/City"
+                    android:id="@+id/city_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="City"
@@ -122,7 +135,7 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/Postal"
+                    android:id="@+id/postal_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Postal"
@@ -131,54 +144,12 @@
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleDrawable="@drawable/ic_eye">
-
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                app:passwordToggleDrawable="@drawable/ic_eye">
-
-                <EditText
-                    android:id="@+id/confirm_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Confirm Password"
-                    android:imeActionId="6"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
             <Button
-                android:id="@+id/register"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                android:id="@+id/update_address"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Register"
-                android:textStyle="bold" />
-
+                android:layout_gravity="center_horizontal"
+                android:text="Update"/>
         </LinearLayout>
-    </ScrollView>
-
 </LinearLayout>
+</ScrollView>
