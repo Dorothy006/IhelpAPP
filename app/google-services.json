@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1001836742598",
+    "firebase_url": "https://serviceprovideapp.firebaseio.com",
+    "project_id": "serviceprovideapp",
+    "storage_bucket": "serviceprovideapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001836742598:android:ff917f04a36c3aeb",
+        "android_client_info": {
+          "package_name": "com.example.tayor.servpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001836742598-f2qhpdb3ovahirbmbtpdpkok84vdnnqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy3ymIP8-9i7szs4Q2z46RNEZguuUu_bw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
