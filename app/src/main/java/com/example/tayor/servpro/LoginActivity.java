@@ -3,6 +3,7 @@ package com.example.tayor.servpro;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -34,6 +35,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,48 +48,80 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity implements  View.OnClickListener{
 
-    // UI references.
+    boolean VISIBLE_PASSWORD = false;
+
     private EditText mEmailView;
     private EditText mPasswordView;
-    private View mProgressView;
-    private View mLoginFormView;
+    private TextView mTextView;
+    private Button btn_login;
+
+    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        // Set up the login form.
+
+        progressDialog = new ProgressDialog(this);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        // email and password
         mEmailView =  findViewById(R.id.email);
         mPasswordView =  findViewById(R.id.password);
+        //get the button
+        mTextView = findViewById(R.id.rigisterLink);
+        btn_login = findViewById(R.id.email_sign_in_button);
+        //button action
+        btn_login.setOnClickListener(this);
+        mTextView.setOnClickListener(this);
 
-        Button mEmailSignInButton =  findViewById(R.id.email_sign_in_button);
-        Button register = findViewById(R.id.register_user);
-        register.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = mEmailView.getText().toString();
-                String password = mPasswordView.getText().toString();
-                if(email.equalsIgnoreCase("tayo") && password.equals("tayo")){
-                    Intent mainScreen = new Intent(LoginActivity.this,Main_screen.class);
-                    startActivity(mainScreen);
-                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                } else{
-                    Toast.makeText(LoginActivity.this, "Username/Password Incorrect", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        if(firebaseAuth.getCurrentUser()!=null){
+            finish();
+            startActivity(new Intent(getApplicationContext(),Main_screen.class));
+        }
 
-        mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v==btn_login){
+            logInUser();
+        }
+        if(v==mTextView){
+            startActivity(new Intent(this,RegisterActivity.class));
+        }
+
+    }
+
+    private void logInUser() {
+        String email = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Please enter your Email",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Please enter your Password",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        progressDialog.setMessage("LogIn successfully...");
+        progressDialog.show();
+
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            finish();
+                            startActivity(new Intent(getApplicationContext(),Main_screen.class));
+                        }
+                    }
+                });
     }
 }
 

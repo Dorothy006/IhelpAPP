@@ -1,10 +1,23 @@
 package com.example.tayor.servpro.Model;
 
 public class Provider {
-    private String company_name,email,phone,line1,line2,country,city,postal,password,confirm_password;
+    private String company_name,email,phone,address,country,city,postal,password,confirm_password;
 
     public Provider() {
     }
+
+    public Provider(String company_name, String email, String phone, String address, String country,String city,String postal,String password) {
+        this.company_name = company_name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.country = country;
+        this.city=city;
+        this.postal = postal;
+        this.password = password;
+
+    }
+
 
     public String getCompany_name() {
         return company_name;
@@ -30,20 +43,12 @@ public class Provider {
         this.phone = phone;
     }
 
-    public String getLine1() {
-        return line1;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLine1(String line1) {
-        this.line1 = line1;
-    }
-
-    public String getLine2() {
-        return line2;
-    }
-
-    public void setLine2(String line2) {
-        this.line2 = line2;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCountry() {

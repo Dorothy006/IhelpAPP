@@ -8,4 +8,6 @@
     <color name="gray">#342E2E</color>
     <color name="header">#696969</color>
     <color name="body">#A9A9A9</color>
+    <color name="colorBackground">#4D06D0FD</color>
+    <color name="colorButton">#342E2E</color>
 </resources>

@@ -15,9 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Main_screen extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     ImageView profileImage;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class Main_screen extends BaseActivity
         setContentView(R.layout.activity_main_screen);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         if(getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -103,6 +108,8 @@ public class Main_screen extends BaseActivity
         } else if (id == R.id.settings) {
 
         } else if (id == R.id.log_out) {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this,LoginActivity.class));
 
         } else if (id == R.id.help) {
 
